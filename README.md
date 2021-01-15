@@ -1,24 +1,39 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## ユーザー管理機能
 
-Things you may want to cover:
+| Column             | Type                | Options                 |
+|--------------------|---------------------|-------------------------|
+| email              | string              | null: false             |
+| password           | string              | null: false             |
+| name               | string              | null: false             |
 
-* Ruby version
 
-* System dependencies
+### Association
 
-* Configuration
+## 商品出品機能
 
-* Database creation
+| Column             | Type                | Options                 |
+|--------------------|---------------------|-------------------------|
+| user               | references          | foreign_key: true       |
+| title              | string              | null: false             |
+| price              | string              | null: false             |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
+## 商品購入機能
 
-* Deployment instructions
+| Column             | Type                | Options                 |
+|--------------------|---------------------|-------------------------|
+| user               | references          | foreign_key: true       |
+| post_code          | integer             | null: false             |
+| city               | string              | null: false             |
+| house_number       | string              | null: false             |
+| phone_number       | integer             | null: false             |
+| card_id            | string              | null: false             |
 
-* ...
+### Association
+
+- belongs_to :user
