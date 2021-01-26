@@ -1,6 +1,6 @@
 # DB 設計
 
-## ユーザー管理機能
+## user table
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
@@ -11,19 +11,25 @@
 
 ### Association
 
-## 商品出品機能
+* has_many :item
+* has_many :purchase
+
+## item table
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| user               | references          | foreign_key: true       |
-| title              | string              | null: false             |
+| name               | string              | null: false             |
+| explain            | text                | null: false             |
+| details            | string              | null: false             |
 | price              | string              | null: false             |
+
 
 ### Association
 
 - belongs_to :user
+* has_one :management
 
-## 商品購入機能
+## purchase table
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
@@ -37,3 +43,15 @@
 ### Association
 
 - belongs_to :user
+
+## management
+
+| Column             | Type                | Options                 |
+|--------------------|---------------------|-------------------------|
+| user_id            | string              | null: false             |
+| item_id            | string              | null: false             |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
