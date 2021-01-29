@@ -15,8 +15,8 @@
 
 ### Association
 
-* has_many :item
-* has_many :purchase
+* has_many :items
+* has_many :managements
 
 ## item table
 
@@ -24,7 +24,7 @@
 |----------------------|---------------------|-------------------------|
 | name                 | string              | null: false             |
 | explain              | text                | null: false             |
-| price                | string              | null: false             |
+| price                | integer             | null: false             |
 | status_id            | string              | null: false             |
 | shipping_price_id    | string              | null: false             |
 | prefecture_id        | string              | null: false             |
@@ -41,16 +41,18 @@
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| user               | references          | foreign_key: true       |
+| management_id      | references          | foreign_key: true       |
 | post_code          | integer             | null: false             |
-| city               | string              | null: false             |
-| house_number       | string              | null: false             |
+| prefecture_id      | string              | null: false             |
+| municipality       | string              | null: false             |
+| address            | integer             | null: false             |
+| building_name      | string              | null: false             |
 | phone_number       | integer             | null: false             |
-| card_id            | string              | null: false             |
+
 
 ### Association
 
-- belongs_to :user
+- belongs_to :management
 
 ## management
 
