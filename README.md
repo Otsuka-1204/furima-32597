@@ -4,10 +4,14 @@
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
+| nickname           | string              | null: false             |
 | email              | string              | null: false             |
 | password           | string              | null: false             |
-| name               | string              | null: false             |
-
+| first_name         | string              | null: false             |
+| last_name          | string              | null: false             |
+| first_name_kana    | string              | null: false             |
+| last_name_kana     | string              | null: false             |
+| birthday           | string              | null: false             |
 
 ### Association
 
@@ -16,12 +20,16 @@
 
 ## item table
 
-| Column             | Type                | Options                 |
-|--------------------|---------------------|-------------------------|
-| name               | string              | null: false             |
-| explain            | text                | null: false             |
-| details            | string              | null: false             |
-| price              | string              | null: false             |
+| Column               | Type                | Options                 |
+|----------------------|---------------------|-------------------------|
+| name                 | string              | null: false             |
+| explain              | text                | null: false             |
+| price                | string              | null: false             |
+| status_id            | string              | null: false             |
+| shipping_price_id    | string              | null: false             |
+| prefecture_id        | string              | null: false             |
+| shipping_delivery_id | string              | null: false             |
+| category_id          | string              | null: false             |
 
 
 ### Association
