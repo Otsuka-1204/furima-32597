@@ -5,7 +5,7 @@
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | nickname           | string              | null: false             |
-| email              | string              | null: false             |
+| email              | string              | unique: true            |
 | encrypted_password | string              | null: false             |
 | first_name         | string              | null: false             |
 | last_name          | string              | null: false             |
@@ -45,9 +45,9 @@
 | management         | references          | foreign_key: true       |
 | post_code          | string              | null: false             |
 | prefecture_id      | integer             | null: false             |
-| municipality       | string              |                         |
+| municipality       | string              | null: false             |
 | address            | string              | null: false             |
-| building_name      | string              | null: false             |
+| building_name      | string              |                         |
 | phone_number       | string              | null: false             |
 
 
@@ -61,9 +61,9 @@
 |--------------------|---------------------|-------------------------|
 | user               | references          | foreign_key: true       |
 | item               | references          | foreign_key: true       |
-| purchase           | references          | foreign_key: true       |
+
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :purchase
+* has_one :purchase
