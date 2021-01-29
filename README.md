@@ -6,12 +6,12 @@
 |--------------------|---------------------|-------------------------|
 | nickname           | string              | null: false             |
 | email              | string              | null: false             |
-| password           | string              | null: false             |
+| encrypted_password | string              | null: false             |
 | first_name         | string              | null: false             |
 | last_name          | string              | null: false             |
 | first_name_kana    | string              | null: false             |
 | last_name_kana     | string              | null: false             |
-| birthday           | string              | null: false             |
+| birthday           | date                | null: false             |
 
 ### Association
 
@@ -22,14 +22,15 @@
 
 | Column               | Type                | Options                 |
 |----------------------|---------------------|-------------------------|
+| user                 | references          | foreign_key: true       |
 | name                 | string              | null: false             |
 | explain              | text                | null: false             |
 | price                | integer             | null: false             |
-| status_id            | string              | null: false             |
-| shipping_price_id    | string              | null: false             |
-| prefecture_id        | string              | null: false             |
-| shipping_delivery_id | string              | null: false             |
-| category_id          | string              | null: false             |
+| status_id            | integer             | null: false             |
+| shipping_price_id    | integer             | null: false             |
+| prefecture_id        | integer             | null: false             |
+| shipping_delivery_id | integer             | null: false             |
+| category_id          | integer             | null: false             |
 
 
 ### Association
@@ -41,13 +42,13 @@
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| management_id      | references          | foreign_key: true       |
-| post_code          | integer             | null: false             |
-| prefecture_id      | string              | null: false             |
-| municipality       | string              | null: false             |
-| address            | integer             | null: false             |
+| management         | references          | foreign_key: true       |
+| post_code          | string              | null: false             |
+| prefecture_id      | integer             | null: false             |
+| municipality       | string              |                         |
+| address            | string              | null: false             |
 | building_name      | string              | null: false             |
-| phone_number       | integer             | null: false             |
+| phone_number       | string              | null: false             |
 
 
 ### Association
@@ -58,10 +59,11 @@
 
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
-| user_id            | string              | null: false             |
-| item_id            | string              | null: false             |
-
+| user               | references          | foreign_key: true       |
+| item               | references          | foreign_key: true       |
+| purchase           | references          | foreign_key: true       |
 ### Association
 
 - belongs_to :user
 - belongs_to :item
+- belongs_to :purchase
